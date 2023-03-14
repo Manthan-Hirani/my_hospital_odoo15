@@ -59,9 +59,9 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"/>
-                </header>
+<!--                <header>-->
+<!--                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"/>-->
+<!--                </header>-->
                 <sheet>
                     <group>
                         <group>

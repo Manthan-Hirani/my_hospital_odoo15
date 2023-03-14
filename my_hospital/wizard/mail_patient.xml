@@ -8,14 +8,14 @@
             <form>
                 <group>
 <!--                    <field name="select_fields" widget="many2many_tags"/>-->
-                    <field name="select_fields"/>
+                    <field name="select_ids"/>
 <!--                    <field name="select_1"/>-->
                     <field name="reason_send"/>
                 </group>
-                <footer>
-                    <button name="action_send" data-hotkey="z" string="Send Mail" type="object" class="btn-primary"/>
-                    <button special="cancel" string="Discard" class="btn-secondary" data-hotkey="q"/>
-                </footer>
+<!--                <footer>-->
+<!--                    <button name="action_send" data-hotkey="z" string="Send Mail" type="object" class="btn-primary"/>-->
+<!--                    <button special="cancel" string="Discard" class="btn-secondary" data-hotkey="q"/>-->
+<!--                </footer>-->
             </form>
         </field>
     </record>

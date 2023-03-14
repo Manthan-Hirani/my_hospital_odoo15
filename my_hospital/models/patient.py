@@ -15,10 +15,11 @@ class HospitalPatient(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender", tracking=True)
     active = fields.Boolean(string="Active", default=True, tracking=True)
     email = fields.Char(string="Email", tracking=True)
-    state = fields.Selection([
-        ('draft', 'Draft'),
-        ('under_observation', 'Under Observation'),
-        ('done', 'Done')], string="Status", default='draft', required=True)
+    # state = fields.Selection([
+    #     ('draft', 'Draft'),
+    #     ('under_observation', 'Under Observation'),
+    #     ('done', 'Done')], string="Status", default='draft', required=True)
+    mail_id = fields.Many2one('mail.patient.wizard', string="Mail")
 
     # @api.onchange('date_of_birth')
     @api.depends('date_of_birth')

@@ -27,7 +27,7 @@
                                    options="{'resizable':true}"/>
                         </page>
                         <page string="Pharmacy" name="pharmacy">
-                            <field name="pharmacy_ids"/>
+<!--                            <field name="pharmacy_ids"/>-->
                         </page>
                         <page string="Medicine Timing" name="medicine_timing"/>
                     </notebook>
