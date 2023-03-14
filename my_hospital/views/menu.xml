@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <menuitem id="menu_hospital_mian"
+              name="Hospital_Test"
+              web_icon="my_hospital,static/description/icon.png"
+              sequence="0"/>
+
+    <menuitem id="menu_patient_mian"
+              name="Patient_Details"
+              parent="menu_hospital_mian"
+              sequence="0"/>
+
+    <menuitem id="menu_appointment_mian"
+              name="Appointment_Details"
+              parent="menu_hospital_mian"
+              sequence="10"/>
+
+    <menuitem id="menu_doctor_mian"
+              name="Doctor_Details"
+              parent="menu_hospital_mian"
+              sequence="20"/>
+
+    <menuitem id="menu_cancel_appointment"
+              name="Cancel_Appointment"
+              parent="menu_appointment_mian"
+              action="action_cancel_appointment"
+              sequence="50"/>
+
+</odoo>
