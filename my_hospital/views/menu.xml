@@ -28,4 +28,6 @@
               action="action_cancel_appointment"
               sequence="50"/>
 
+
+
 </odoo>
