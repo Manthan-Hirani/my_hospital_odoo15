@@ -17,7 +17,7 @@ class HospitalAppointment(models.Model):
         ('draft', 'Draft'),
         ('in_consultation', 'In consultation'),
         ('done', 'Done'),
-        ('cancel', 'Canceled')], string="Status", default='draft', required=True)
+        ('cancel', 'Canceled')], string="Status", default='draft', required=True, tracking=True)
     # pharmacy_ids = fields.One2many('appointment.pharmacy', 'appointment_id', string="Pharmacy")
 
 
