@@ -15,11 +15,11 @@ class HospitalPatient(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender", tracking=True)
     active = fields.Boolean(string="Active", default=True, tracking=True)
     email = fields.Char(string="Email", tracking=True)
+    # mail_id = fields.Many2one('mail.patient.wizard', string="Mail")
     # state = fields.Selection([
     #     ('draft', 'Draft'),
     #     ('under_observation', 'Under Observation'),
     #     ('done', 'Done')], string="Status", default='draft', required=True)
-    mail_id = fields.Many2one('mail.patient.wizard', string="Mail")
 
     # @api.onchange('date_of_birth')
     @api.depends('date_of_birth')
@@ -31,3 +31,7 @@ class HospitalPatient(models.Model):
                         (today.month, today.day) < (rec.date_of_birth.month, rec.date_of_birth.day))
             else:
                 rec.age = 1
+
+    @api.model
+    def test_cron_job(self):
+        print("ABCD")

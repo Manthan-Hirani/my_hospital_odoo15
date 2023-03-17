@@ -10,9 +10,10 @@
         <field name="state">code</field>
         <field name="code">
             if record:
-            action_values = env.ref('my_hospital.window_action_mail_patient').sudo().read()[0]
-            action_values.update({'context': env.context})
-            action = action_values
+                action_values = env.ref('my_hospital.window_action_mail_patient').sudo().read()[0]
+                action_values.update({'context': env.context})
+                action = action_values
+
         </field>
     </record>
 

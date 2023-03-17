@@ -20,6 +20,7 @@
         'views/tags.xml',
         'reports/patient_report.xml',
         'reports/report.xml',
+        'schedule_action/appointment_cron.xml'
     ],
     'demo': [],
     'application': True,
