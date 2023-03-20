@@ -7,6 +7,7 @@
             string="Patient Card"
             model="hospital.patient"
             report_type="qweb-pdf"
+            attachment_use="True"
             name="my_hospital.report_patient"
             file="my_hospital.report_patient"/>
 

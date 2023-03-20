@@ -20,6 +20,9 @@ class HospitalAppointment(models.Model):
         ('cancel', 'Canceled')], string="Status", default='draft', required=True, tracking=True)
     # pharmacy_ids = fields.One2many('appointment.pharmacy', 'appointment_id', string="Pharmacy")
 
+    def cancel_btn(self):
+        self.state = "cancel"
+
 
 # class AppointmentPharmacy(models.Model):
 #     _name = "appointment.pharmacy"

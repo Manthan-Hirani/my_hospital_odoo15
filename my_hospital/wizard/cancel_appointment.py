@@ -10,5 +10,4 @@ class CancelAppointmentWizard(models.TransientModel):
 
     def action_cancel(self):
         self.appointment_id.state = "cancel"
-        print("Cancel appointment", self.appointment_id.state)
 

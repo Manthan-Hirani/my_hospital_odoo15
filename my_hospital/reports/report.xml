@@ -2,14 +2,13 @@
 <odoo>
     <template id="report_patient_cards">
         <t t-call="web.html_container">
-            <a href="http://wkhtmltopdf.org/" target="_blank">wkhtmltopdf.org</a>
             <t t-foreach="docs" t-as="doc">
                 <h2>Testing</h2>
-                <div>Name: <t t-esc="doc.name"/></div><br/>
-                <div>DOB: <t t-esc="doc.date_of_birth"/></div><br/>
-                <div>Age: <t t-esc="doc.age"/></div><br/>
-                <div>Gender: <t t-esc="doc.gender"/></div><br/>
-                <div>Email: <t t-esc="doc.email"/></div><br/>
+                <t t-esc="doc.name"/>
+                <t t-esc="doc.date_of_birth"/>
+                <t t-esc="doc.age"/>
+                <t t-esc="doc.gender"/>
+                <t t-esc="doc.email"/>
             </t>
         </t>
     </template>
