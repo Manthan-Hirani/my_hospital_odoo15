@@ -7,8 +7,8 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-<!--                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"/>-->
-                    <button name="cancel_btn" string="Cancel Appointment" type="object" class="oe_highlight"/>
+                    <button name="cancel_btn" string="Cancel Appointment" confirm="Are you sure for cancel appointment?" type="object" class="oe_highlight"/>
+<!--                    <button name="action_send_mail" string="Mail" type="object" class="oe_highlight" icon="fa-envelope"/>-->
                     <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}" statusbar_visible="draft,in_consultation,done"/>
                 </header>
                 <sheet>

@@ -35,3 +35,11 @@ class HospitalPatient(models.Model):
     @api.model
     def test_cron_job(self):
         print("ABCD")
+
+    def mail_btn(self):
+        # template = self.env.ref('my_hospital.mail_to_patient')
+        # print(template)
+        # for rec in self:
+        #     template.send_mail(rec.id, force_send=True)
+        template = self.env.ref('my_hospital.mail_to_patient')
+        template.send_mail(self.id, force_send=True)

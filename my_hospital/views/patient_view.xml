@@ -13,7 +13,6 @@
                 action_values = env.ref('my_hospital.window_action_mail_patient').sudo().read()[0]
                 action_values.update({'context': env.context})
                 action = action_values
-
         </field>
     </record>
 
@@ -23,6 +22,7 @@
         <field name="arch" type="xml">
             <tree sample="1">
                 <field name="name"/>
+                <field name="id"/>
                 <field name="age"/>
                 <field name="gender"/>
                 <field name="email"/>
@@ -36,6 +36,7 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="id"/>
                 <field name="age"/>
                 <field name="gender"/>
                 <field name="email"/>
@@ -60,10 +61,12 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <form>
-<!--                <header>-->
+                <header>
+                    <button name="mail_btn" type="object" string="Mail" confirm="Are you sure to send Mail?"/>
 <!--                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"/>-->
-<!--                </header>-->
+                </header>
                 <sheet>
+                    <field name="id"/>
                     <group>
                         <group>
                             <field name="name"/>

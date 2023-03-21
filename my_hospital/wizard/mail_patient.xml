@@ -7,9 +7,9 @@
         <field name="arch" type="xml">
             <form>
                 <group>
-<!--                    <field name="select_fields" widget="many2many_tags"/>-->
-                    <field name="select_ids"/>
-<!--                    <field name="select_1"/>-->
+                    <field name="select_fields" widget="many2many_tags"/>
+                    <!--                    <field name="select_ids"/>-->
+                    <!--                    <field name="select_1"/>-->
                     <field name="reason_send"/>
                 </group>
                 <footer>
@@ -30,9 +30,9 @@
 
     <record id="mail_to_patient" model="mail.template">
         <field name="name">Mail to patient</field>
-        <field name="subject">Patient Details</field>
-        <!-- <field name="email_from"></field> -->
-        <!-- <field name="email_to"></field> -->
+        <field name="subject">Patient Details 001</field>
+<!--        <field name="email_from"></field>-->
+        <field name="email_to">{{object.email}}</field>
         <field name="model_id" ref="my_hospital.model_hospital_patient"/>
         <field name="body_html" type="html">
             <div style="font-family: Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; max-width: 600px; font-size: 14px; margin: 0 auto; ;padding: 0px; box-sizing: border-box;border:1px solid #ddd;">
@@ -68,23 +68,29 @@
                                                 <tr>
                                                     <td>
                                                         <p style="font-weight: 500; font-size: 27px; margin-bottom: 15px;">
-                                                            Hello, <span t-field="object.name"/>
+                                                            Hello,
+                                                            <span t-field="object.name"/>
                                                         </p>
                                                         <div>
-                                                            Email: <span t-field="object.email"/>
+                                                            Email:
+                                                            <span t-field="object.email"/>
                                                         </div>
                                                         <div>
-                                                            Date of birth: <span t-field="object.date_of_birth"/>
+                                                            Date of birth:
+                                                            <span t-field="object.date_of_birth"/>
                                                         </div>
                                                         <div>
-                                                            Age: <span t-field="object.age"/>
+                                                            Age:
+                                                            <span t-field="object.age"/>
                                                         </div>
                                                         <div>
-                                                            Gender: <span t-field="object.gender"/>
+                                                            Gender:
+                                                            <span t-field="object.gender"/>
                                                         </div>
-<!--                                                        <div>-->
-<!--                                                            Active: <span t-field="object.active"/>-->
-<!--                                                        </div>-->
+                                                        <br/>
+                                                        <!--                                                        <div>-->
+                                                        <!--                                                            Active: <span t-field="object.active"/>-->
+                                                        <!--                                                        </div>-->
                                                         <p style="margin: 0px; font-weight: normal; font-size: 14px; line-height: 1.6;">
                                                             Cell: +91-635-308-6224 | Desk: +91-79-2640-9959
                                                         </p>

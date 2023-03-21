@@ -4,15 +4,16 @@ from odoo import api, fields, models
 
 class MailPatientWizard(models.Model):
     _name = "mail.patient.wizard"
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['hospital.patient', 'mail.thread', 'mail.activity.mixin']
     _description = "Mail Patient Wizard"
 
     # appointment_id = fields.Many2one('hospital.appointment', string="Appointment", tracking=True)
-    # select_fields = fields.Many2many("ir.model.fields", string="Select Fields")
+    select_fields = fields.Many2many("ir.model.fields", string="Select Fields", domain=[('model', '=', 'hospital.patient')])
+    # select_fields = fields.Many2many("hospital.patient.fields", string="Select Fields")
     # select_fields = fields.Many2one("hospital.patient", string="Select Fields")
     # select_1 = fields.Many2many(related="selected_fields.name", tracking=True)
     # select_ids = fields.One2many('hospital.patient', 'mail_id', string="Select Fields")
-    select_ids = fields.Many2one('hospital.patient', string="Select Fields")
+    # select_ids = fields.Many2one('hospital.patient', string="Select Fields")
     # patient_id = fields.Many2one('hospital.patient', string="Patient")
     # age = fields.Integer(related="patient_id.age", string="Age")
     # email = fields.Char(related="patient_id.email", string="Email")
@@ -79,13 +80,27 @@ class MailPatientWizard(models.Model):
     #         print("There is no such attribute")
     #         return False
 
+    # def send_btn(self):
+    #     template_id = self.env.ref('my_hospital.report_patient_cards').id
+    #     template = self.env['mail.mail'].browse(template_id)
+    #     template.send_mail(self.id, force_send=True)
+    #     # print(template_id)
+    #     # print(self.id)
+    #     # print(template)
+
     def send_btn(self):
-        template_id = self.env.ref('my_hospital.report_patient_cards').id
-        template = self.env['mail.template'].browse(template_id)
-        template.send_mail(self.id, force_send=True)
-        # print(template_id)
-        # print(self.id)
-        print(template)
+        template = self.env.ref('my_hospital.mail_to_patient')
+        # print("This is ", template)
+        template.send_mail(self.env.context['active_id'], force_send=True)
+
+    # def send_btn(self):
+    #     template = self.env.ref('my_hospital.mail_to_patient')
+    #     print(template)
+    #     for rec in self:
+    #         template.send_mail(rec.id, force_send=True)
+
+    # def send_btn(self):
+    #     pass
 
 
 
