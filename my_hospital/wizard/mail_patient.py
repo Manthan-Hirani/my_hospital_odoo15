@@ -8,7 +8,6 @@ class MailPatientWizard(models.Model):
     _description = "Mail Patient Wizard"
 
     # appointment_id = fields.Many2one('hospital.appointment', string="Appointment", tracking=True)
-    select_fields = fields.Many2many("ir.model.fields", string="Select Fields", domain=[('model', '=', 'hospital.patient')])
     # select_fields = fields.Many2many("hospital.patient.fields", string="Select Fields")
     # select_fields = fields.Many2one("hospital.patient", string="Select Fields")
     # select_1 = fields.Many2many(related="selected_fields.name", tracking=True)
@@ -19,7 +18,17 @@ class MailPatientWizard(models.Model):
     # email = fields.Char(related="patient_id.email", string="Email")
     # gender = fields.Selection(related="patient_id.gender", string="Gender")
     # date_of_birth = fields.Date(related="patient_id.date_of_birth", string="Date of Birth")
-    reason_send = fields.Text(string="Reason", tracking=True)
+    # reason_send = fields.Text(string="Reason", tracking=True)
+    select_fields = fields.Many2many("ir.model.fields", string="Select Fields", domain=[('model', '=', 'hospital.patient')])
+
+    def send_btn(self):
+        template = self.env.ref('my_hospital.mail_to_patient')
+        template.send_mail(self.env.context['active_id'], force_send=True)
+        print("Outside")
+        context = {
+            'select_fields': self.select_fields}
+        print(context)
+        # template.with_context(context).send_mail(self.env.context['active_id'], force_send=True)
 
     # @api.model
     # def send_btn(self, email_to, subject, body):
@@ -88,11 +97,6 @@ class MailPatientWizard(models.Model):
     #     # print(self.id)
     #     # print(template)
 
-    def send_btn(self):
-        template = self.env.ref('my_hospital.mail_to_patient')
-        # print("This is ", template)
-        template.send_mail(self.env.context['active_id'], force_send=True)
-
     # def send_btn(self):
     #     template = self.env.ref('my_hospital.mail_to_patient')
     #     print(template)
@@ -101,7 +105,3 @@ class MailPatientWizard(models.Model):
 
     # def send_btn(self):
     #     pass
-
-
-
-

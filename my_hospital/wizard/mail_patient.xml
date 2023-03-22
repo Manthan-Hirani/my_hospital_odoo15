@@ -8,9 +8,7 @@
             <form>
                 <group>
                     <field name="select_fields" widget="many2many_tags"/>
-                    <!--                    <field name="select_ids"/>-->
-                    <!--                    <field name="select_1"/>-->
-                    <field name="reason_send"/>
+<!--                    <field name="reason_send"/>-->
                 </group>
                 <footer>
                     <button special="cancel" string="Discard" class="btn-secondary" data-hotkey="q"/>
@@ -69,7 +67,12 @@
                                                     <td>
                                                         <p style="font-weight: 500; font-size: 27px; margin-bottom: 15px;">
                                                             Hello,
-                                                            <span t-field="object.name"/>
+<!--                                                            <span t-field="object.name"/>-->
+<!--                                                            ${ctx.get('select_fields')}-->
+<!--                                                            <t t-set="select_fields" t-value="ctx.get('select_fields')" />-->
+<!--                                                            <t t-esc="select_fields" />-->
+                                                            <p t-out="ctx.get('select_fields')"/>
+
                                                         </p>
                                                         <div>
                                                             Email:
@@ -87,6 +90,15 @@
                                                             Gender:
                                                             <span t-field="object.gender"/>
                                                         </div>
+                                                        <div>
+<!--                                                            <t t-set="doc" t-value="doc.with_context(web=doc.select_fields.web)" />-->
+<!--                                                            <span t-set="a" t-value="doc.name"/>-->
+<!--                                                            <span t-esc="a"/>-->
+                                                        </div>
+<!--                                                        <div>-->
+<!--                                                            Reason:-->
+<!--                                                            <span t-field="reason_send"/>-->
+<!--                                                        </div>-->
                                                         <br/>
                                                         <!--                                                        <div>-->
                                                         <!--                                                            Active: <span t-field="object.active"/>-->
