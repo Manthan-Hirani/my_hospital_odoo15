@@ -34,7 +34,7 @@ class HospitalPatient(models.Model):
 
     @api.model
     def test_cron_job(self):
-        print("ABCD")
+        print("Schedule Action Triggered.")
 
     def mail_btn(self):
         # template = self.env.ref('my_hospital.mail_to_patient')

@@ -22,13 +22,21 @@ class MailPatientWizard(models.Model):
     select_fields = fields.Many2many("ir.model.fields", string="Select Fields", domain=[('model', '=', 'hospital.patient')])
 
     def send_btn(self):
-        template = self.env.ref('my_hospital.mail_to_patient')
-        template.send_mail(self.env.context['active_id'], force_send=True)
-        print("Outside")
+        ctx_list = []
         context = {
-            'select_fields': self.select_fields}
-        print(context)
-        # template.with_context(context).send_mail(self.env.context['active_id'], force_send=True)
+            'select_fields': self.select_fields,
+            'ctx_list': ctx_list
+        }
+        template = self.env.ref('my_hospital.mail_to_patient')
+        # template.send_mail(self.env.context['active_id'], force_send=True)
+        # print("Outside")
+        print(context.keys())
+        # print(context)
+        for rec in self.select_fields:
+            ctx_list.append(rec.name)
+        print(ctx_list)
+        mail = template.with_context(context).send_mail(self.env.context['active_id'], force_send=True)
+        print(mail)
 
     # @api.model
     # def send_btn(self, email_to, subject, body):

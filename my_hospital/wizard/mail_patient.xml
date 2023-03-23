@@ -71,30 +71,36 @@
 <!--                                                            ${ctx.get('select_fields')}-->
 <!--                                                            <t t-set="select_fields" t-value="ctx.get('select_fields')" />-->
 <!--                                                            <t t-esc="select_fields" />-->
-                                                            <p t-out="ctx.get('select_fields')"/>
 
                                                         </p>
+<!--                                                        <div><span t-out="ctx.get('select_fields')"/></div>-->
+<!--                                                        <div><span t-out="ctx.get('ctx_list')"/></div>-->
                                                         <div>
-                                                            Email:
-                                                            <span t-field="object.email"/>
+                                                            <t t-foreach="ctx.get('ctx_list')" t-as="ls">
+                                                                <li><span t-esc="ls"/></li>
+                                                            </t>
                                                         </div>
-                                                        <div>
-                                                            Date of birth:
-                                                            <span t-field="object.date_of_birth"/>
-                                                        </div>
-                                                        <div>
-                                                            Age:
-                                                            <span t-field="object.age"/>
-                                                        </div>
-                                                        <div>
-                                                            Gender:
-                                                            <span t-field="object.gender"/>
-                                                        </div>
-                                                        <div>
-<!--                                                            <t t-set="doc" t-value="doc.with_context(web=doc.select_fields.web)" />-->
-<!--                                                            <span t-set="a" t-value="doc.name"/>-->
-<!--                                                            <span t-esc="a"/>-->
-                                                        </div>
+<!--                                                        <div>-->
+<!--                                                            Email:-->
+<!--                                                            <span t-field="object.email"/>-->
+<!--                                                        </div>-->
+<!--                                                        <div>-->
+<!--                                                            Date of birth:-->
+<!--                                                            <span t-field="object.date_of_birth"/>-->
+<!--                                                        </div>-->
+<!--                                                        <div>-->
+<!--                                                            Age:-->
+<!--                                                            <span t-field="object.age"/>-->
+<!--                                                        </div>-->
+<!--                                                        <div>-->
+<!--                                                            Gender:-->
+<!--                                                            <span t-field="object.gender"/>-->
+<!--                                                        </div>-->
+<!--                                                        <div>-->
+<!--&lt;!&ndash;                                                            <t t-set="doc" t-value="doc.with_context(web=doc.select_fields.web)" />&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            <span t-set="a" t-value="doc.name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            <span t-esc="a"/>&ndash;&gt;-->
+<!--                                                        </div>-->
 <!--                                                        <div>-->
 <!--                                                            Reason:-->
 <!--                                                            <span t-field="reason_send"/>-->
