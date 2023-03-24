@@ -16,6 +16,7 @@
                         <group>
                             <field name="patient_id"/>
                             <field name="gender"/>
+                            <field name="age"/>
                         </group>
                         <group>
                             <field name="doctor_id"/>
@@ -49,10 +50,11 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <tree decoration-info="state == 'draft'" decoration-warning="state == 'in_consultation'"
-                  decoration-success="state == 'done'" decoration-danger="state == 'cancel'" multi_edit="1">
+                  decoration-success="state == 'done'" decoration-danger="state == 'cancel'" multi_edit="1" sample="1">
                 <field name="patient_id"/>
                 <field name="gender" optional="show"/>
                 <field name="doctor_id"/>
+                <field name="age" optional="show"/>
                 <field name="appointment_time"/>
                 <field name="booking_date" optional="hide"/>
                 <field name="activity_ids" widget="list_activity" optional="show"/>

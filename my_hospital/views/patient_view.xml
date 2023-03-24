@@ -62,7 +62,7 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="mail_btn" type="object" string="Mail" confirm="Are you sure to send Mail?"/>
+<!--                    <button name="mail_btn" type="object" string="Mail" confirm="Are you sure to send Mail?"/>-->
 <!--                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"/>-->
                 </header>
                 <sheet>

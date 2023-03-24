@@ -11,6 +11,7 @@ class HospitalAppointment(models.Model):
     patient_id = fields.Many2one('hospital.patient', string="Patient", tracking=True)
     doctor_id = fields.Many2one('hospital.doctor', string="Doctor", tracking=True)
     gender = fields.Selection(related="patient_id.gender", tracking=True)
+    age = fields.Integer(related="patient_id.age", string="Age", trcking=True)
     appointment_time = fields.Datetime(string='Appointment Time', default=fields.Datetime.now)
     booking_date = fields.Date(string="Booking Date", default=fields.Date.context_today, tracking=True)
     prescription = fields.Html(string="Prescription", tracking=True)
