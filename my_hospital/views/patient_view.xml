@@ -22,7 +22,7 @@
         <field name="arch" type="xml">
             <tree sample="1">
                 <field name="name"/>
-                <field name="id"/>
+                <field name="id" groups="base.group_hospital_admin"/>
                 <field name="age"/>
                 <field name="gender"/>
                 <field name="email"/>
