@@ -10,9 +10,9 @@
         <field name="state">code</field>
         <field name="code">
             if record:
-                action_values = env.ref('my_hospital.window_action_mail_patient').sudo().read()[0]
-                action_values.update({'context': env.context})
-                action = action_values
+            action_values = env.ref('my_hospital.window_action_mail_patient').sudo().read()[0]
+            action_values.update({'context': env.context})
+            action = action_values
         </field>
     </record>
 
@@ -62,11 +62,22 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-<!--                    <button name="mail_btn" type="object" string="Mail" confirm="Are you sure to send Mail?"/>-->
-<!--                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"/>-->
+                    <!--                    <button name="mail_btn" type="object" string="Mail" confirm="Are you sure to send Mail?"/>-->
+                    <!--                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"/>-->
                 </header>
                 <sheet>
-                    <field name="id"/>
+                    <group>
+                        <group>
+                            <h1>
+                                <field name="id"/>
+                                <br/>
+                                <field name="name"/>
+                            </h1>
+                        </group>
+                        <group>
+                            <p><field name="image" widget="image" class="oe_avatar"/></p>
+                        </group>
+                    </group>
                     <group>
                         <group>
                             <field name="name"/>

@@ -8,6 +8,7 @@ class HospitalPatient(models.Model):
     _description = "Hospital Patient"
 
     name = fields.Char(string="Name", tracking=True)
+    image = fields.Image(tracking=True)
     date_of_birth = fields.Date(string="Date of Birth")
     # mail_patient_ids = fields.One2many('mail.patient.wizard', string="Mail to Patient")
     # today_date = fields.Date(string="Today's Date")

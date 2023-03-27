@@ -12,13 +12,13 @@
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',
-        'wizard/cancel_appointment.xml',
-        'wizard/mail_patient.xml',
         'views/menu.xml',
         'views/patient_view.xml',
         'views/appointment_view.xml',
         'views/doctor_view.xml',
         'views/tags.xml',
+        'wizard/cancel_appointment.xml',
+        'wizard/mail_patient.xml',
         'reports/patient_report.xml',
         'reports/report.xml',
         'schedule_action/appointment_cron.xml'
