@@ -1,5 +1,6 @@
-from odoo import api, fields, models
-from odoo.exceptions import UserError
+from odoo import api, fields, models, _
+from datetime import date
+from odoo.exceptions import ValidationError
 
 
 class HospitalAppointment(models.Model):
@@ -13,7 +14,7 @@ class HospitalAppointment(models.Model):
     gender = fields.Selection(related="patient_id.gender", tracking=True)
     age = fields.Integer(related="patient_id.age", string="Age", trcking=True)
     appointment_time = fields.Datetime(string='Appointment Time', default=fields.Datetime.now)
-    booking_date = fields.Date(string="Booking Date", default=fields.Date.context_today, tracking=True)
+    booking_date = fields.Date(string="Booking Date", default=fields.Date.today, tracking=True)
     prescription = fields.Html(string="Prescription", tracking=True)
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -24,7 +25,19 @@ class HospitalAppointment(models.Model):
     # pharmacy_ids = fields.One2many('appointment.pharmacy', 'appointment_id', string="Pharmacy")
 
     def cancel_btn(self):
-        self.state = "cancel"
+        today = date.today()
+        print(self.state, "Outside")
+        # if self.booking_date == today and (self.state == 'in_consultation' or self.state == 'done'):
+        if self.state == 'done':
+            print(self.state)
+            raise ValidationError(_("You can't cancel appointment"))
+        else:
+            self.state = "cancel"
+
+    # def action_reset(self):
+    #     self.state = 'draft'
+
+
 
     # def action_send_mail(self):
     #     template = self.env.ref('my_hospital.report_patient_cards').id

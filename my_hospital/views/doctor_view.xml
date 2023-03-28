@@ -37,7 +37,7 @@
         <field name="model">hospital.doctor</field>
         <field name="arch" type="xml">
             <tree sample="1" multi_edit="1">
-                <field name="doctor_id"/>
+                <field name="doctor_id" widget="many2one_avatar_user"/>
                 <field name="gender"/>
                 <field name="experience"/>
                 <field name="expertise"/>

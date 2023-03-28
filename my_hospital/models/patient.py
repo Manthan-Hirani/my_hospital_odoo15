@@ -1,5 +1,6 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 from datetime import date
+from odoo.exceptions import ValidationError
 
 
 class HospitalPatient(models.Model):
@@ -16,6 +17,7 @@ class HospitalPatient(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender", tracking=True)
     active = fields.Boolean(string="Active", default=True, tracking=True)
     email = fields.Char(string="Email", tracking=True)
+
     # mail_id = fields.Many2one('mail.patient.wizard', string="Mail")
     # state = fields.Selection([
     #     ('draft', 'Draft'),
@@ -27,9 +29,16 @@ class HospitalPatient(models.Model):
     def _compute_age(self):
         for rec in self:
             today = date.today()
+            # print(rec.date_of_birth)
+            # print(type(rec.date_of_birth))
+            # print(today)
+            # print(type(today))
             if rec.date_of_birth:
-                rec.age = today.year - rec.date_of_birth.year - (
-                        (today.month, today.day) < (rec.date_of_birth.month, rec.date_of_birth.day))
+                if rec.date_of_birth > today:
+                    raise ValidationError(_("Please Enter Valid Date of Birth"))
+                else:
+                    rec.age = today.year - rec.date_of_birth.year - (
+                            (today.month, today.day) < (rec.date_of_birth.month, rec.date_of_birth.day))
             else:
                 rec.age = 1
 

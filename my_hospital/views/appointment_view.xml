@@ -7,9 +7,11 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="cancel_btn" string="Cancel Appointment" confirm="Are you sure for cancel appointment?" type="object" class="oe_highlight"/>
-<!--                    <button name="action_send_mail" string="Mail" type="object" class="oe_highlight" icon="fa-envelope"/>-->
-                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}" statusbar_visible="draft,in_consultation,done"/>
+                    <button name="cancel_btn" string="Cancel Appointment" confirm="Are you sure for cancel appointment?"
+                            type="object" class="oe_highlight" states="draft"/>
+                    <!--                    <button name="action_send_mail" string="Mail" type="object" class="oe_highlight" icon="fa-envelope"/>-->
+                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"
+                           statusbar_visible="draft,in_consultation,done"/>
                 </header>
                 <sheet>
                     <group>
@@ -30,7 +32,7 @@
                                    options="{'resizable':true}"/>
                         </page>
                         <page string="Pharmacy" name="pharmacy">
-<!--                            <field name="pharmacy_ids"/>-->
+                            <!--                            <field name="pharmacy_ids"/>-->
                         </page>
                         <page string="Medicine Timing" name="medicine_timing"/>
                     </notebook>
@@ -77,7 +79,8 @@
                 <field name="doctor_id"/>
                 <templates>
                     <div t-name="activity-box">
-                        <img t-att-src="activity_image('hospital.doctor', 'image', record.doctor_id.raw_value)" t-att-title="record.doctor_id.value" t-att-alt="record.doctor_id.value"/>
+                        <img t-att-src="activity_image('hospital.doctor', 'image', record.doctor_id.raw_value)"
+                             t-att-title="record.doctor_id.value" t-att-alt="record.doctor_id.value"/>
                         <div>
                             <field name="doctor_id" display="full"/>
                         </div>
@@ -119,4 +122,5 @@
               action="action_hospital_appointment"
               parent="menu_appointment_mian"
               sequence="10"/>
+
 </odoo>

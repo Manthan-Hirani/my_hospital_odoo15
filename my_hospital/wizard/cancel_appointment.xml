@@ -11,7 +11,7 @@
                     <field name="reason_cansel"/>
                 </group>
                 <footer>
-                    <button name="action_cancel" data-hotkey="z" string="Cancel Appointment" type="object" class="btn-primary"/>
+                    <button name="action_cancel" data-hotkey="z" string="Cancel Appointment" type="object" class="btn-primary" states="draft, in_consultation"/>
                     <button special="cancel" string="Discard" class="btn-secondary" data-hotkey="q"/>
                 </footer>
             </form>
