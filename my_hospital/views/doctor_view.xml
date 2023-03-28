@@ -10,7 +10,7 @@
                     <field name="image" widget="image" class="oe_avatar"/>
                     <group>
                         <group>
-                            <field name="name"/>
+                            <field name="doctor_id"/>
                             <field name="gender"/>
                         </group>
                         <group>
@@ -37,7 +37,7 @@
         <field name="model">hospital.doctor</field>
         <field name="arch" type="xml">
             <tree sample="1" multi_edit="1">
-                <field name="name"/>
+                <field name="doctor_id"/>
                 <field name="gender"/>
                 <field name="experience"/>
                 <field name="expertise"/>
@@ -50,7 +50,7 @@
         <field name="model">hospital.doctor</field>
         <field name="arch" type="xml">
             <kanban sample="1">
-                <field name="name"/>
+                <field name="doctor_id"/>
                 <field name="gender"/>
                 <field name="experience"/>
                 <field name="expertise"/>
@@ -59,7 +59,7 @@
                         <div t-attf-class="oe_kanban_global_click">
                             <div class="oe_kanban_details">
                                 <ul>
-                                    <li><field name="name"/></li>
+                                    <li><field name="doctor_id"/></li>
                                     <li><field name="gender"/></li>
 <!--                                    <li><field name="experience"/></li>-->
                                     <li><field name="expertise"/></li>
@@ -77,7 +77,7 @@
         <field name="model">hospital.doctor</field>
         <field name="arch" type="xml">
             <search>
-                <field name="name"/>
+                <field name="doctor_id"/>
                 <field name="expertise"/>
                 <filter name="filter_male" string="Male" domain="[('gender','=','male')]"/>
                 <filter name="filter_female" string="Female" domain="[('gender','=','female')]"/>
