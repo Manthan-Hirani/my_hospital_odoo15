@@ -22,6 +22,7 @@
         <field name="arch" type="xml">
             <tree sample="1">
                 <field name="name"/>
+                <field name="emergency" widget="priority"/>
                 <field name="id" groups="base.group_hospital_admin"/>
                 <field name="age"/>
                 <field name="gender"/>
@@ -36,14 +37,20 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="emergency"/>
                 <field name="id"/>
                 <field name="age"/>
                 <field name="gender"/>
                 <field name="email"/>
                 <filter name="filter_male" string="Male" domain="[('gender','=','male')]"/>
+                <separator/>
                 <filter name="filter_female" string="Female" domain="[('gender','=','female')]"/>
                 <separator/>
                 <!--                <filter name="filter_kid" string="Kid" domain="[('age','&lt;=',5)]"/>-->
+                <filter name="emergency_none" string="Emergency None" domain="[('emergency','=','none')]"/>
+                <filter name="emergency_low" string="Emergency Low" domain="[('emergency','=','low')]"/>
+                <filter name="emergency_medium" string="Emergency Medium" domain="[('emergency','=','medium')]"/>
+                <filter name="emergency_high" string="Emergency High" domain="[('emergency','=','high')]"/>
                 <separator/>
                 <filter name="filter_Archive" string="Archive" domain="[('active','=',False)]"/>
                 <group expand="0" string="Group By">
@@ -71,11 +78,13 @@
                             <h1>
                                 <field name="id"/>
                                 <br/>
-                                <field name="name"/>
+                                <field name="emergency" widget="priority" class="mr-3"/>
                             </h1>
                         </group>
                         <group>
-                            <p><field name="image" widget="image" class="oe_avatar"/></p>
+                            <p>
+                                <field name="image" widget="image" class="oe_avatar"/>
+                            </p>
                         </group>
                     </group>
                     <group>

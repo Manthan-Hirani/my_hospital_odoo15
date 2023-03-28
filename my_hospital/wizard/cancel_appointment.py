@@ -8,7 +8,10 @@ class CancelAppointmentWizard(models.TransientModel):
     _description = "Cancel Appointment Wizard"
 
     appointment_id = fields.Many2one('hospital.appointment', string="Appointment", tracking=True, domain=[('state', '=', 'draft')])
+    # appointment_id = fields.Many2one('hospital.appointment', string="Appointment", tracking=True)
     reason_cansel = fields.Char(string="Reason", tracking=True)
+    # state = fields.Selection(related='appointment_id.state')
+    # print(state)
 
     def action_cancel(self):
         today = date.today()

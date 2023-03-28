@@ -27,8 +27,7 @@ class HospitalAppointment(models.Model):
     def cancel_btn(self):
         today = date.today()
         print(self.state, "Outside")
-        # if self.booking_date == today and (self.state == 'in_consultation' or self.state == 'done'):
-        if self.state == 'done':
+        if self.booking_date == today:
             print(self.state)
             raise ValidationError(_("You can't cancel appointment"))
         else:
