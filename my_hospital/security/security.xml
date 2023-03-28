@@ -21,7 +21,7 @@
     <record id="appointment_record_doctor_rule" model="ir.rule">
         <field name="name">Doctor show his appointments</field>
         <field name="model_id" ref="model_hospital_appointment"/>
-        <field name="domain_force">[('doctor_id.name','=',user.id)]</field>
+        <field name="domain_force">[('doctor_id.doctor_id','=',user.id)]</field>
         <field name="groups" eval="[(4, ref('group_hospital_doctor'))]"/>
     </record>
 
