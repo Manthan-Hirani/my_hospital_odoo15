@@ -20,7 +20,7 @@
         <field name="name">hospital.patient.tree</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
-            <tree sample="1">
+            <tree sample="1" multi_edit="1">
                 <field name="name"/>
                 <field name="emergency" widget="priority"/>
                 <field name="id" groups="base.group_hospital_admin"/>
@@ -74,18 +74,16 @@
                 </header>
                 <sheet>
                     <group>
-                        <group>
-                            <h1>
-                                <field name="id"/>
-                                <br/>
-                                <field name="emergency" widget="priority" class="mr-3"/>
-                            </h1>
-                        </group>
-                        <group>
-                            <p>
-                                <field name="image" widget="image" class="oe_avatar"/>
-                            </p>
-                        </group>
+                        <div class="h1">
+                            <field name="id"/>
+                            <br/>
+                            <!--                                <field name="emergency" widget="priority" class="mr-3"/>-->
+                            <label for="name" string="Name" class="oe_edit_only"/>
+                            <field name="name"/>
+                        </div>
+                        <div>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                        </div>
                     </group>
                     <group>
                         <group>

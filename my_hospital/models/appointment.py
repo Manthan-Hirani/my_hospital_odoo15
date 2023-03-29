@@ -9,12 +9,12 @@ class HospitalAppointment(models.Model):
     _description = "Hospital Appointment"
     _rec_name = "patient_id"
 
-    patient_id = fields.Many2one('hospital.patient', string="Patient", tracking=True)
-    doctor_id = fields.Many2one('hospital.doctor', string="Doctor", tracking=True)
+    patient_id = fields.Many2one('hospital.patient', string="Patient", tracking=True, ondelete="restrict")
+    doctor_id = fields.Many2one('hospital.doctor', string="Doctor", tracking=True, ondelete="restrict")
     gender = fields.Selection(related="patient_id.gender", tracking=True)
     age = fields.Integer(related="patient_id.age", string="Age", trcking=True)
-    appointment_time = fields.Datetime(string='Appointment Time', default=fields.Datetime.now)
-    booking_date = fields.Date(string="Booking Date", default=fields.Date.today, tracking=True)
+    appointment_time = fields.Datetime(string='Appointment Time', default=fields.Datetime.now, tracking=True, copy=False)
+    booking_date = fields.Date(string="Booking Date", default=fields.Date.today, tracking=True, copy=False)
     prescription = fields.Html(string="Prescription", tracking=True)
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -33,10 +33,14 @@ class HospitalAppointment(models.Model):
         else:
             self.state = "cancel"
 
+    def unlink(self):
+        for rec in self:
+            if rec.state != 'draft':
+                raise ValidationError(_("You can only delete 'draft' state appointment."))
+        return super(HospitalAppointment, self).unlink()
+
     # def action_reset(self):
     #     self.state = 'draft'
-
-
 
     # def action_send_mail(self):
     #     template = self.env.ref('my_hospital.report_patient_cards').id

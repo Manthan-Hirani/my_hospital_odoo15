@@ -35,7 +35,7 @@ class HospitalPatient(models.Model):
             # print(today)
             # print(type(today))
             if rec.date_of_birth:
-                if rec.date_of_birth > today:
+                if rec.date_of_birth and rec.date_of_birth > today:
                     raise ValidationError(_("Please Enter Valid Date of Birth"))
                 else:
                     rec.age = today.year - rec.date_of_birth.year - (
