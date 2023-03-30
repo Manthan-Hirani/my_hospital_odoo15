@@ -22,10 +22,4 @@
               parent="menu_hospital_mian"
               sequence="20"/>
 
-    <menuitem id="menu_cancel_appointment"
-              name="Cancel Appointment"
-              parent="menu_appointment_mian"
-              action="action_cancel_appointment"
-              sequence="50"/>
-
 </odoo>

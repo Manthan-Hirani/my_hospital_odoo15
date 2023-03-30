@@ -26,4 +26,10 @@
         <field name="target">new</field>
     </record>
 
+    <menuitem id="menu_cancel_appointment"
+              name="Cancel Appointment"
+              action="action_cancel_appointment"
+              parent="menu_appointment_mian"
+              sequence="100"/>
+
 </odoo>

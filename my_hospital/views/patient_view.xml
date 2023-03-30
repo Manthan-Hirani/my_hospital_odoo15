@@ -47,10 +47,10 @@
                 <filter name="filter_female" string="Female" domain="[('gender','=','female')]"/>
                 <separator/>
                 <!--                <filter name="filter_kid" string="Kid" domain="[('age','&lt;=',5)]"/>-->
-                <filter name="emergency_none" string="Emergency None" domain="[('emergency','=','none')]"/>
-                <filter name="emergency_low" string="Emergency Low" domain="[('emergency','=','low')]"/>
-                <filter name="emergency_medium" string="Emergency Medium" domain="[('emergency','=','medium')]"/>
-                <filter name="emergency_high" string="Emergency High" domain="[('emergency','=','high')]"/>
+                <filter name="emergency_none" string="Emergency None" domain="[('emergency','=','0')]"/>
+                <filter name="emergency_low" string="Emergency Low" domain="[('emergency','=','1')]"/>
+                <filter name="emergency_medium" string="Emergency Medium" domain="[('emergency','=','2')]"/>
+                <filter name="emergency_high" string="Emergency High" domain="[('emergency','=','3')]"/>
                 <separator/>
                 <filter name="filter_Archive" string="Archive" domain="[('active','=',False)]"/>
                 <group expand="0" string="Group By">
@@ -77,9 +77,10 @@
                         <div class="h1">
                             <field name="id"/>
                             <br/>
-                            <!--                                <field name="emergency" widget="priority" class="mr-3"/>-->
-                            <label for="name" string="Name" class="oe_edit_only"/>
-                            <field name="name"/>
+                            <label for="emergency" string="Emergency Level" class="oe_edit_only"/>
+                            <field name="emergency" widget="priority" class="mr-3"/>
+                            <!--                            <label for="name" string="Name" class="oe_edit_only"/>-->
+                            <!--                            <field name="name"/>-->
                         </div>
                         <div>
                             <field name="image" widget="image" class="oe_avatar"/>
