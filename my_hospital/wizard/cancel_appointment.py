@@ -19,7 +19,8 @@ class CancelAppointmentWizard(models.TransientModel):
         cancel_day = self.env['ir.config_parameter'].get_param('my_hospital.cancel_days')
         # print(cancel_day)
         allowed_date = today + relativedelta.relativedelta(days=int(cancel_day))
-        # print(allowed_date)
+        # print(type(allowed_date))
+        # print(type(self.appointment_id.booking_date))
         if self.appointment_id.booking_date < allowed_date:
             raise ValidationError(_("You can't cancel this appointment"))
 
@@ -27,5 +28,9 @@ class CancelAppointmentWizard(models.TransientModel):
         #     raise ValidationError(_("You can't cancel today's appointment"))
         else:
             self.appointment_id.state = "cancel"
+            return {
+                'type': 'ir.actions.client',
+                'tag': 'reload',
+            }
 
 

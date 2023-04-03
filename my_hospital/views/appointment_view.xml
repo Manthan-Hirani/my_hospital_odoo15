@@ -38,11 +38,11 @@
                     </notebook>
                 </sheet>
                 <!-- Chatter -->
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" groups="base.group_user"/>
-                    <field name="activity_ids"/>
-                    <field name="message_ids"/>
-                </div>
+<!--                <div class="oe_chatter">-->
+<!--                    <field name="message_follower_ids" groups="base.group_user"/>-->
+<!--                    <field name="activity_ids"/>-->
+<!--                    <field name="message_ids"/>-->
+<!--                </div>-->
             </form>
         </field>
     </record>
@@ -59,7 +59,7 @@
                 <field name="age" optional="show"/>
                 <field name="appointment_time"/>
                 <field name="booking_date" optional="hide"/>
-                <field name="activity_ids" widget="list_activity" optional="show"/>
+<!--                <field name="activity_ids" widget="list_activity" optional="show"/>-->
                 <field name="state"
                        decoration-info="state == 'draft'"
                        decoration-warning="state == 'in_consultation'"

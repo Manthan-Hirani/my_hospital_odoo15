@@ -8,14 +8,22 @@ class HospitalAppointment(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Hospital Appointment"
     _rec_name = "patient_id"
-    _order = "id desc"
+    _order = "emergency desc, booking_date, state"
 
     patient_id = fields.Many2one('hospital.patient', string="Patient", tracking=True, ondelete="restrict")
     doctor_id = fields.Many2one('hospital.doctor', string="Doctor", tracking=True, ondelete="restrict")
+    emergency = fields.Selection(related="patient_id.emergency", tracking=True)
     gender = fields.Selection(related="patient_id.gender", tracking=True)
     age = fields.Integer(related="patient_id.age", string="Age", trcking=True)
-    appointment_time = fields.Datetime(string='Appointment Time', default=fields.Datetime.now, tracking=True, copy=False)
+    appointment_time = fields.Datetime(string='Appointment Time', default=fields.Datetime.now, tracking=True,
+                                       copy=False)
     booking_date = fields.Date(string="Booking Date", default=fields.Date.today, tracking=True, copy=False)
+    # is_appointment = fields.Boolean(string="Appointment ?", compute='_compute_is_appointment')
+    is_appointment = fields.Selection([
+        ('0', 'Default'),
+        ('1', 'Today'),
+        ('2', 'previous'),
+        ('3', 'next')], string="Appointment ?", compute='_compute_is_appointment')
     prescription = fields.Html(string="Prescription", tracking=True)
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -34,11 +42,34 @@ class HospitalAppointment(models.Model):
         else:
             self.state = "cancel"
 
+    @property
     def unlink(self):
         for rec in self:
             if rec.state != 'draft':
                 raise ValidationError(_("You can only delete 'draft' state appointment."))
-        return super(HospitalAppointment, self).unlink()
+        return super(HospitalAppointment, self).unlink
+
+    @api.depends('booking_date')
+    def _compute_is_appointment(self):
+        today = date.today()
+        for rec in self:
+            if rec.booking_date:
+                is_appointment = '0'
+                if (today.month, today.day) == (rec.booking_date.month, rec.booking_date.day):
+                    is_appointment = '1'
+                #     print("Today is your appointment")
+                elif (today.month, today.day) < (rec.booking_date.month, rec.booking_date.day):
+                    is_appointment = '2'
+                elif (today.month, today.day) > (rec.booking_date.month, rec.booking_date.day):
+                    is_appointment = '3'
+                else:
+                    is_appointment = '0'
+                rec.is_appointment = is_appointment
+
+    # @api.ondelete(at_uninstall=False)
+    # def _check_appointments(self):
+    #     for rec in self:
+
 
     # def action_reset(self):
     #     self.state = 'draft'

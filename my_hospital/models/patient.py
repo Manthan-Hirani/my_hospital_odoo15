@@ -6,16 +6,15 @@ from dateutil import relativedelta
 
 class HospitalPatient(models.Model):
     _name = "hospital.patient"
-    _inherit = ["mail.thread", "mail.activity.mixin"]
+    # _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Hospital Patient"
-    _order = "emergency"
+    _order = "emergency desc"
 
     name = fields.Char(string="Name", tracking=True)
     image = fields.Image(tracking=True, string="Profile Photo")
     date_of_birth = fields.Date(string="Date of Birth", tracking=True)
     emergency = fields.Selection([('0', 'None'), ('1', 'Low'), ('2', 'Medium'), ('3', 'High')],
-                                 string="Emergency", default='none', tracking=True)
-    print(emergency)
+                                 string="Emergency", default='0', tracking=True)
     # mail_patient_ids = fields.One2many('mail.patient.wizard', string="Mail to Patient")
     # today_date = fields.Date(string="Today's Date")
     age = fields.Integer(string="Age", compute="_compute_age", inverse="_inverse_compute_age", tracking=True)

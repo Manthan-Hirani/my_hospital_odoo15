@@ -14,4 +14,4 @@ class HospitalTags(models.Model):
     color1 = fields.Integer(string="Color 1")
     # color2 = fields.Char(string="Color 2")
 
-    _sql_constraints = [('unique_tag_name', 'unique(tag_name)', 'Name Must be unique')]
+    _sql_constraints = [('unique_tag_name', 'unique(tag_name)', 'Tag name Must be unique')]

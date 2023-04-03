@@ -23,11 +23,11 @@
                     </group>
                 </sheet>
                 <!-- Chatter -->
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" groups="base.group_user"/>
-                    <field name="activity_ids"/>
-                    <field name="message_ids"/>
-                </div>
+<!--                <div class="oe_chatter">-->
+<!--                    <field name="message_follower_ids" groups="base.group_user"/>-->
+<!--                    <field name="activity_ids"/>-->
+<!--                    <field name="message_ids"/>-->
+<!--                </div>-->
             </form>
         </field>
     </record>
@@ -71,7 +71,7 @@
             </kanban>
         </field>
     </record>
-    
+
     <record id="view_hospital_doctor_search" model="ir.ui.view">
         <field name="name">hospital.doctor.search</field>
         <field name="model">hospital.doctor</field>
