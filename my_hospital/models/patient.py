@@ -14,7 +14,7 @@ class HospitalPatient(models.Model):
     image = fields.Image(tracking=True, string="Profile Photo")
     date_of_birth = fields.Date(string="Date of Birth", tracking=True)
     emergency = fields.Selection([('0', 'None'), ('1', 'Low'), ('2', 'Medium'), ('3', 'High')],
-                                 string="Emergency", default='none', tracking=True)
+                                 string="Emergency", default='0', tracking=True)
     print(emergency)
     # mail_patient_ids = fields.One2many('mail.patient.wizard', string="Mail to Patient")
     # today_date = fields.Date(string="Today's Date")
