@@ -6,7 +6,7 @@ from dateutil import relativedelta
 
 class HospitalPatient(models.Model):
     _name = "hospital.patient"
-    # _inherit = ["mail.thread", "mail.activity.mixin"]
+    _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Hospital Patient"
     _order = "emergency desc"
 

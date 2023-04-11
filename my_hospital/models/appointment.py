@@ -23,7 +23,7 @@ class HospitalAppointment(models.Model):
         ('0', 'Default'),
         ('1', 'Today'),
         ('2', 'previous'),
-        ('3', 'next')], string="Appointment ?", compute='_compute_is_appointment')
+        ('3', 'next')], string="Appointment ?", default='0', compute='_compute_is_appointment')
     prescription = fields.Html(string="Prescription", tracking=True)
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -42,22 +42,19 @@ class HospitalAppointment(models.Model):
         else:
             self.state = "cancel"
 
-    @property
     def unlink(self):
         for rec in self:
             if rec.state != 'draft':
                 raise ValidationError(_("You can only delete 'draft' state appointment."))
-        return super(HospitalAppointment, self).unlink
+        return super(HospitalAppointment, self).unlink()
 
     @api.depends('booking_date')
     def _compute_is_appointment(self):
         today = date.today()
         for rec in self:
             if rec.booking_date:
-                is_appointment = '0'
                 if (today.month, today.day) == (rec.booking_date.month, rec.booking_date.day):
                     is_appointment = '1'
-                #     print("Today is your appointment")
                 elif (today.month, today.day) < (rec.booking_date.month, rec.booking_date.day):
                     is_appointment = '2'
                 elif (today.month, today.day) > (rec.booking_date.month, rec.booking_date.day):
