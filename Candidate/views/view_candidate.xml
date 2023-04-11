@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-        <record id="view_candidate_detail_tree" model="ir.ui.view">
-            <field name="name">candidate.detail.tree</field>
-            <field name="model">recruitment.candidate</field>
-            <field name="arch" type="xml">
-                <tree sample="1">
-                    <field name="name"/>
-                    <field name="email"/>
-                    <field name="mobile"/>
-                    <field name="degree"/>
-                    <field name="applied_job"/>
-                    <field name="current_company"/>
-                    <field name="current_city"/>
-                    <field name="skills" widget="badge"/>
-                    <field name="current_salary"/>
-                    <field name="expected_salary"/>
-                    <field name="referred_by"/>
-                    <field name="experience_in_months"/>
-                    <field name="current_experience"/>
-                </tree>
-            </field>
-        </record>
+    <record id="view_candidate_detail_tree" model="ir.ui.view">
+        <field name="name">candidate.detail.tree</field>
+        <field name="model">recruitment.candidate</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="email" widget="email"/>
+                <field name="mobile" widget="phone"/>
+                <field name="degree"/>
+                <field name="applied_job" optional="hide"/>
+                <field name="current_company" optional="hide"/>
+                <field name="current_city" optional="hide"/>
+                <field name="skills" widget="many2many_tags" options="{'color_field': 'color'}" optional="show"/>
+                <field name="current_salary" optional="hide"/>
+                <field name="expected_salary"/>
+                <field name="referred_by" optional="hide"/>
+                <field name="experience_in_months" optional="hide"/>
+                <field name="current_experience"/>
+            </tree>
+        </field>
+    </record>
 
     <record id="view_candidate_detail_form" model="ir.ui.view">
         <field name="name">candidate.detail.form</field>
@@ -29,13 +30,13 @@
         <field name="arch" type="xml">
             <form sample="1">
                 <sheet>
-                    <div class="h1 w-50">
+                    <div class="h1 w-75">
                         <field name="name" placeholder="Candidate Name"/>
                     </div>
                     <group>
                         <group>
-                            <field name="email">Email</field>
-                            <field name="mobile">Mobile</field>
+                            <field name="email" widget="email">Email</field>
+                            <field name="mobile" widget="phone">Mobile</field>
                             <field name="degree">degree</field>
                             <field name="applied_job">Applied Job</field>
                             <field name="current_company">Current Company</field>
@@ -71,7 +72,7 @@
 
     <menuitem id="menu_candidate_details"
               name="Candidate Details"
-              parent="menu_candidate_main"
+              parent="hr_recruitment.menu_crm_case_categ0_act_job"
               action="action_candidate_detail"
               sequence="0"/>
 
