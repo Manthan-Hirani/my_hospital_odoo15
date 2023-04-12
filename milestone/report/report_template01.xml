@@ -40,7 +40,7 @@
 
         <style type="text/css">
             #grad1 {
-            height: 200px;
+            height: 15px;
             background-image: linear-gradient(to left, #db0d41 , orange);
             }
             #grad2 {
@@ -48,42 +48,76 @@
             height: 2px;
             background-image: linear-gradient(to left, #db0d41 , orange);
             }
-            #logo {
-
-            }
         </style>
-        <div class="header">
+        <div class="container header">
+
             <div class="row">
-                <div class="col-4 mb-3">
-                    <img alt="img" src="/Images/dp.png" style="max-height: 100px"/>
-<!--                    <img src="https://linuxhint.com/wp-content/uploads/2022/08/How-to-Add-Image-in-HTML-From-a-Folder-1.png" style="max-height: 100px" alt="logo"/>-->
+                <div class="col-4"/>
+                <div class="col-4"/>
+                <div class="col-4" id="grad1"/>
+            </div>
+
+            <div class="row">
+                <div class="col-4 my-3">
+                    <img alt="img"
+                         src="https://github.com/Manthan-Hirani/Odoo15/blob/Tasks/milestone/Images/dp.png?raw=true"
+                         style="max-height: 80px"/>
+                    <!--                    <img src="data:images/png;base64,milestone/Images/dp.png" alt="logo"/>-->
                 </div>
-                <div class="col-8 text-right mb-3">
-                    <!--                    <span t-if="company.street"/>-->
-                    <!--                    <span t-if="company.street" t-field="company.street"/><br/>-->
-                    <!--                    <span t-if="company.street2" t-field="company.street2"/><br/>-->
-                    <!--                    <span t-if="company.city" t-field="company.city"/><br/>-->
-                    <!--                    <span t-if="company.state_id" t-field="company.state_id"/>-->
-                    <!--                    <span t-if="company.zip" t-field="company.zip"/><br/>-->
-                    <!--                    <span t-if="company.country_id" t-field="company.country_id"/>-->
+                <div class="col-4"/>
+                <div class="col-4 my-3">
+                    <div class="row">
+                        <div class="col-4"/>
+                        <div class="col-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                 style="height: 16px; width: 16px;">
+                                <path fill="#db0d41"
+                                      d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+                            </svg>
+                            <span>Phone:</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4"/>
+                        <div class="col-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                 style="height: 16px; width: 16px;">
+                                <path fill="#db0d41" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+                            </svg>
+                            <span>
+                                Email:
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4"/>
+                        <div class="col-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                 style="height: 16px; width: 16px;">
+                                <path fill="#db0d41"
+                                      d="M57.7 193l9.4 16.4c8.3 14.5 21.9 25.2 38 29.8L163 255.7c17.2 4.9 29 20.6 29 38.5v39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9v39c0 15.6 14.9 26.9 29.9 22.6c16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7v-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1H257c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2c-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5c4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5 .3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3C163.1 48 84.4 108.9 57.7 193zM464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/>
+                            </svg>
+                            <span>Web-site:</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!--            <hr style="border: none; height: 2px; background-image: linear-gradient(to left, #db0d41 , orange);"/>-->
+            <hr class="w-100" style="border: none; height: 2px; background-image: linear-gradient(to left, #db0d41 , orange);"/>
         </div>
-        <div class="article o_report_layout_standard">
+
+        <div class="article o_report_layout_standard container">
             <t t-out="0"/>
         </div>
-        <div class="footer o_standard_footer">
+        <div class="footer o_standard_footer container">
             <div class="row">
                 <div class="w-100 pt-4"
-                     style="margin: 0px; font-weight: normal; font-size: 16px; line-height: 1.6; border-top: 2px solid black;">
-                    <div class="text-center mb-4" style="background-image: linear-gradient(to left, #db0d41 , orange)">
-                        Cell:
+                     style="margin: 0px; font-weight: normal; font-size: 16px; line-height: 1.6;">
+                    <div class="text-center mb-4 w-100"
+                         style="background-image: linear-gradient(to left, #db0d41 , orange); color: white; height:26px">
+                        <span class="my-2">Address:</span>
                         <!--                        <span t-if="company.phone" t-field="company.phone"/>-->
-                        <div class="text-right">
-                            page no.
-                            <span class="page"/>
-                        </div>
                     </div>
                 </div>
             </div>
