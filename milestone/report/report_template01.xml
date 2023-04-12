@@ -108,6 +108,9 @@
         </div>
 
         <div class="article o_report_layout_standard container">
+            <div style="position:absolute; z-index:-1; border:0; opacity:0.1; padding-top:100px; padding-left:-300px">
+                <img src="https://github.com/Manthan-Hirani/Odoo15/blob/Tasks/milestone/Images/only_logo.png?raw=true" alt="watermark" style="height:600px; width:600px opacity:0.1"/>
+            </div>
             <t t-out="0"/>
         </div>
         <div class="footer o_standard_footer container">
