@@ -12,7 +12,7 @@
         # 'views/menu.xml',
         'data/milestone_tags_data.xml',
         'views/milestone_tags.xml',
-        'report/report_template.xml',
+        'report/report_template01.xml',
         'report/report.xml',
     ],
     'demo': [],
