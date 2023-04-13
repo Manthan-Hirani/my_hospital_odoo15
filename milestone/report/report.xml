@@ -6,7 +6,7 @@
             id="report_customer_invoice"
             string="Custom Invoice"
             model="account.move"
-            report_type="qweb-pdf"
+            report_type="qweb-html"
             name="milestone.report_invoice"
             file="milestone.report_invoice"/>
 
